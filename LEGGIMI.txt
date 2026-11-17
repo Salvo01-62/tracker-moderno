@@ -1,0 +1,41 @@
+TRACKER MODERNO - VERSIONE 1.0.1 (CORRETTA)
+
+COSA CONTIENE
+- Archivio clienti con ricerca
+- Schede con linguette: Anagrafica, Contatti, Note, Storico attività
+- Stampa scheda
+- Esportazione dell'archivio in JSON
+- Interfaccia adattabile a PC e smartphone
+- Struttura PWA installabile
+- Collegamento opzionale a Supabase per sincronizzazione tra dispositivi
+
+AVVIO RAPIDO SU WINDOWS
+1. Estrai la cartella ZIP.
+2. Per provare subito il programma, apri index.html con Chrome o Edge.
+   Se aggiorni una versione precedente, estrai questo ZIP in una NUOVA cartella e apri l’index.html di questa cartella.
+3. Per installarlo come applicazione PWA e usare correttamente il service worker, pubblica la cartella su un hosting HTTPS statico (ad esempio GitHub Pages o Netlify) oppure avviala tramite un server locale.
+4. Su Chrome/Edge, apri il sito e usa l'icona Installa nella barra degli indirizzi oppure Menu > Installa Tracker.
+
+INSTALLAZIONE SU ANDROID
+1. Pubblica la cartella su un hosting HTTPS statico.
+2. Apri l'indirizzo con Chrome su Android.
+3. Menu ⋮ > Aggiungi a schermata Home / Installa app.
+
+IMPORTANTE SULLA SINCRONIZZAZIONE
+La prima apertura funziona in modalità locale: i dati restano nel browser/dispositivo. Per condividere lo stesso archivio tra PC e telefono serve configurare un progetto Supabase gratuito:
+1. Crea un progetto su https://supabase.com/ (piano gratuito).
+2. Nel progetto apri SQL Editor e incolla/esegui il file supabase-schema.sql incluso.
+3. In Project Settings > API copia Project URL e la chiave anon/publishable (MAI service_role).
+4. Pubblica questa cartella su un hosting HTTPS.
+5. Apri Tracker > Impostazioni, inserisci URL, chiave, email e password, poi Salva e accedi. La libreria Supabase viene caricata da CDN: è necessaria una connessione Internet.
+6. Ripeti l'accesso sugli altri dispositivi con lo stesso account.
+
+NOTA TECNICA E LIMITI DELLA VERSIONE 1.0
+- Il salvataggio locale è automatico nel browser. Non cancellare i dati del sito senza aver esportato un backup.
+- La sincronizzazione cloud è una prima implementazione: i dati locali e remoti vengono uniti per ID; in caso di modifiche contemporanee allo stesso cliente prevale la copia inviata più recentemente durante la sincronizzazione.
+- L'eliminazione cloud e la gestione dei conflitti saranno migliorate nelle versioni successive. Per ora fai un'esportazione JSON regolare.
+- Il piano gratuito di un servizio cloud può cambiare condizioni o sospendere progetti inattivi. Non è garantita disponibilità illimitata.
+- Non inserire dati particolarmente sensibili o documenti d'identità in questa versione.
+
+BACKUP
+Usa il pulsante “Esporta archivio” e conserva il file JSON in un luogo sicuro. Il file contiene i dati dei clienti in chiaro.
